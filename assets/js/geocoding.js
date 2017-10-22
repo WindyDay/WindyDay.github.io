@@ -48,22 +48,24 @@ function geocodeAddress(geocoder, insta_token)
 
 function generateNearbyList(lat, lng, tokken)
 {
-    var html = '';
-    html += '<ul class="list-inline">';
+     $.ajax({
+                    url : "https://api.instagram.com/v1/locations/search?lat="+ lat +"&lng="+ lng +"&access_token=" + tokken,
+                    type : 'get',
+                    dataType : 'json',
+                    success : function (result){
+                        alert(JSON.stringify(rsp);
+                              
+                        var html = '';
+                        html += '<ul class="list-inline">';
     
-    $.getJSON("https://api.instagram.com/v1/locations/search?lat="+ lat +"&lng="+ lng +"&access_token=" + tokken, function (data) {
-		
-		data.data.forEach(function (item, index) {
-            
-			html += "<li>" + item.name + "</li>";
-            
-		})
+                        html += '<li>' + data.data[0].name + '</li>';
+                        
 
-		document.getElementById('listLocationNearBy').innerHTML = html;
-	});
-    
-    html += '</ul>';
-    
+                        document.getElementById('listLocationNearBy').innerHTML = html;
+
+                        html += '</ul>';
+                    }
+                });
 }
 
 
