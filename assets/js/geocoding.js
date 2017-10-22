@@ -21,7 +21,7 @@ function initMap()
 
 function redirectToInstagAPI()
 {
-    window.location.href = "https://www.instagram.com/oauth/authorize/?client_id=5ad0aa418c074e1d86fa698b83bd919e&redirect_uri=https://windyday.github.io/&response_type=token&scope=public_content";
+    window.location.href = "https://www.instagram.com/oauth/authorize/?client_id=5ad0aa418c074e1d86fa698b83bd919e&redirect_uri=http://192.168.114.2:60989/&response_type=token&scope=public_content";
     
 }
 
@@ -50,10 +50,15 @@ function generateNearbyList(lat, lng, tokken)
 {
     var html = '';
     html += '<ul class="list-inline">';
+    var url = "https://api.instagram.com/v1/locations/search?lat="+ lat +"&lng="+ lng +"&access_token=" + tokken;
     
-    $.getJSON("https://api.instagram.com/v1/locations/search?lat="+ lat +"&lng="+ lng +"&access_token=" + tokken, function (data) 
+    $.getJSON(url, function (data) 
     {
-		html += '<li>' + data.data[0].name + '</li>';
+        
+		data.data.forEach(function (item, index) {
+	         html += '<li>' + item.name + '</li>';
+	   });
+		
 		
 
 		document.getElementById('listLocationNearBy').innerHTML = html;
