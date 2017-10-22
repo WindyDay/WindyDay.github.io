@@ -4,18 +4,17 @@ function initMap() {
             {
                 access_token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];
 
-            }
-        catch(err)
-            {
-                redirectToInstagAPI();
-            }
+            geocoder = new google.maps.Geocoder();
+        }
+    catch(err)
+        {
+            redirectToInstagAPI();
+        }
 
-        var geocoder = new google.maps.Geocoder();
-
-        document.getElementById('SearchBtn').addEventListener('click', function() {
-          geocodeAddress(geocoder);
-        });
-      }
+    document.getElementById('SearchBtn').addEventListener('click', function() {
+      geocodeAddress(geocoder);
+    });
+}
 
 function redirectToInstagAPI()
 {
