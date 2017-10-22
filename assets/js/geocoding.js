@@ -53,7 +53,7 @@ function generateNearbyList(lat, lng, tokken)
                     type : 'get',
                     dataType : 'json',
                     success : function (result){
-                        alert(JSON.stringify(rsp);
+                        alert(JSON.stringify(result));
                               
                         var html = '';
                         html += '<ul class="list-inline">';
