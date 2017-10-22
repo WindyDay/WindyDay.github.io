@@ -49,22 +49,28 @@ function geocodeAddress(geocoder, insta_token)
 function generateNearbyList(lat, lng, tokken)
 {
     var html = '';
-    html += '<ul class="list-inline">';
+    html += '<ul>';
     var url = "https://api.instagram.com/v1/locations/search?lat="+ lat +"&lng="+ lng +"&access_token=" + tokken;
     
-    $.getJSON(url, function (data) 
-    {
-        
-		data.data.forEach(function (item, index) {
-	         html += '<li>' + item.name + '</li>';
-	   });
-		
-		
+    $.ajax({
+        url: url,
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function (data) 
+        {
 
-		document.getElementById('listLocationNearBy').innerHTML = html;
-	});
+            data.data.forEach(function (item, index) {
+                 html += '<li>' + item.name + '</li>';
+           });
+
+            html += '</ul>';
+            document.getElementById('listLocationNearBy').innerHTML = html;
+        },
+        error: function() { alert('Failed!'); }
+    });
     
-    html += '</ul>';
+    
     
 }
 
