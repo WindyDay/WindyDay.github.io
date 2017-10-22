@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Page</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/user.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><span class="text-title">Search image by location</span></a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1"></div>
+            </div>
+        </nav>
+    </header>
+    <hr>
+    <div class="container post">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-5 col-md-4 col-md-offset-4 col-sm-5 col-sm-offset-4 col-xs-10 col-xs-offset-1">
+                <input id="SearchField" type="text" autofocus name="SearchField" value="HCMUS" />
+                <button id="SearchBtn" class="btn btn-success" type="button">Search </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <div id="position"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h5>1412421 - 1412465 - 1412646 </h5></footer>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTRdtF4fU3-yiKOy9NhiRAXIQUXrVBwYU&callback=initMap">
+</script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/geocoding.js"></script>
+</body>
+
+</html>
