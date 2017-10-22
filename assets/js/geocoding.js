@@ -1,16 +1,18 @@
 function initMap() {
         var url = window.location.href;
-    
-        alert(url);
-        var token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];
+        var access_token;
+        try
+            {
+                access_token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];
 
-        alert(token);
-
-        if(access_token == "")
+            }
+        catch(err)
             {
                 redirectToInstagAPI();
             }
-    
+        
+        alert(access_token);
+
         var geocoder = new google.maps.Geocoder();
 
         document.getElementById('SearchBtn').addEventListener('click', function() {
