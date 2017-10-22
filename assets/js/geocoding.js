@@ -15,7 +15,7 @@ function initMap()
         }
 
     document.getElementById('SearchBtn').addEventListener('click', function() {
-      geocodeAddress(geocoder);
+      geocodeAddress(geocoder, insta_token);
     });
 }
 
@@ -25,7 +25,7 @@ function redirectToInstagAPI()
     
 }
 
-function geocodeAddress(geocoder) 
+function geocodeAddress(geocoder, insta_token) 
 {
     var address = document.getElementById('SearchField').value;
     geocoder.geocode({'address': address}, function(results, status) 
@@ -35,9 +35,9 @@ function geocodeAddress(geocoder)
           
         document.getElementById('position').innerHTML = "Location info recieve from google: " + results[0].geometry.location.lat() + " | " +  results[0].geometry.location.lng();
       
-        document.getElementById('listLocationNearByTitle').innerHTML = "Nearby locations from instagram:<br>" + results[0].geometry.location.lat() + " | " +  results[0].geometry.location.lng();
-      
-      
+        document.getElementById('listLocationNearByTitle').innerHTML = "Nearby locations from instagram:<br>";
+          
+        generateNearbyList(results[0].geometry.location.lat(), results[0].geometry.location.lng(), insta_token);
       } 
         else 
       {
@@ -59,14 +59,10 @@ function generateNearbyList(lat, lng, tokken)
             
 		})
 
-		document.getElementById('listLocationNearBy ').innerHTML = html;
+		document.getElementById('listLocationNearBy').innerHTML = html;
 	});
     
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-    <li>Item 4</li>
-</ul>
+    html += '</ul>';
     
 }
 
