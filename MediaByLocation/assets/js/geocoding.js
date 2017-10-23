@@ -86,7 +86,7 @@ function showNearbyMedia(element)
 	html += '<div class="col-md-12">'
 	html +=     '<div class="panel panel-default">'
 	html +=         '<div class="panel-heading">'
-	html +=             '<h3 class="panel-title">Nearby medias:</h3></div>'
+	html +=             '<h3 class="panel-title">Nearby media:</h3></div>'
 	html +=         '<div class="panel-body">'
 	html +=             '<div class="row">'
 
