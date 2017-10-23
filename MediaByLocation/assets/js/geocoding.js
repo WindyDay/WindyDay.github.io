@@ -140,7 +140,7 @@ function showNearbyMedia(element)
                             html +=                         '</div>'
                             html +=                     '</div>'
                             html +=                 '</div>'
-                        });
+                        };
                     }
                     catch(err)
                     {
