@@ -81,7 +81,7 @@ function showNearbyMedia(element)
 	var latitude = element.getAttribute("data-lat");
 	var longitude = element.getAttribute("data-lng");
 	//alert(latitude + " | " + longitude);
-	var url = 'https://api.instagram.com/v1/media/search?lat='+ latitude +'&lng=' + longitude +'&access_token=' + insta_token;
+	var url = 'https://api.instagram.com/v1/media/search?lat='+ latitude +'&lng=' + longitude +'distance=5000&access_token=' + insta_token;
 	var html = '';
 	html += '<div class="col-md-12">'
 	html +=     '<div class="panel panel-default">'
