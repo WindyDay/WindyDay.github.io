@@ -102,6 +102,62 @@ function showNearbyMedia(element)
                 //console.log(item.images.low_resolution.url)
                 data.data.forEach(function (item, index) 
                 {
+                    item.carousel_media.forEach(function (item2, index2) 
+                    {
+                        console.log(item2);
+                        //console.log(item2.videos.standard_resolution.url);
+                        //begin
+                        html +=                '<div class="col-md-12">'
+                        html +=                     '<div class="thumbnail">'
+                        html +=                         '<div style="text-align:center;">'
+                        
+
+                        try
+                        {
+                            var tempHTML = '';
+                            tempHTML += '<a><video controls>'
+                            tempHTML +=   '<source src=' + item2.videos.standard_resolution.url + ' type="video/mp4">'
+                            tempHTML +=   'Your browser does not support the video tag.'
+                            tempHTML += '</video></a>'
+                            html += tempHTML;
+                        }
+                        catch(err)
+                        {
+                            try
+                            {
+                                html +=                      '<a><img src='+item2.images.standard_resolution.url+' /></a>'
+                            }
+                            catch(err)
+                            {
+
+                            }
+                        }
+
+                        html +=                         '</div>'
+                        html +=                         '<div class="caption">'
+                        html +=                             '<p></p>'
+                        html +=                         '</div>'
+                        html +=                     '</div>'
+                        html +=                 '</div>'
+                    });
+                    
+
+
+                    //end
+                });
+            
+
+                document.getElementById('listMediaNearby').innerHTML = html;
+
+                $('html, body').animate({
+                    scrollTop: $("#listMediaNearby").offset().top
+                }, 2000);
+            }
+            catch(err)
+            {
+                //console.log(item.images.low_resolution.url)
+                data.data.forEach(function (item, index) 
+                {
                     try
                     {
                         {
@@ -183,62 +239,6 @@ function showNearbyMedia(element)
                             html +=                 '</div>'
                         });
                     }
-                    
-
-
-                    //end
-                });
-            
-
-                document.getElementById('listMediaNearby').innerHTML = html;
-
-                $('html, body').animate({
-                    scrollTop: $("#listMediaNearby").offset().top
-                }, 2000);
-            }
-            catch(err)
-            {
-                //console.log(item.images.low_resolution.url)
-                data.data.forEach(function (item, index) 
-                {
-                    item.carousel_media.forEach(function (item2, index2) 
-                    {
-                        console.log(item2);
-                        //console.log(item2.videos.standard_resolution.url);
-                        //begin
-                        html +=                '<div class="col-md-12">'
-                        html +=                     '<div class="thumbnail">'
-                        html +=                         '<div style="text-align:center;">'
-                        
-
-                        try
-                        {
-                            var tempHTML = '';
-                            tempHTML += '<a><video controls>'
-                            tempHTML +=   '<source src=' + item2.videos.standard_resolution.url + ' type="video/mp4">'
-                            tempHTML +=   'Your browser does not support the video tag.'
-                            tempHTML += '</video></a>'
-                            html += tempHTML;
-                        }
-                        catch(err)
-                        {
-                            try
-                            {
-                                html +=                      '<a><img src='+item2.images.standard_resolution.url+' /></a>'
-                            }
-                            catch(err)
-                            {
-
-                            }
-                        }
-
-                        html +=                         '</div>'
-                        html +=                         '<div class="caption">'
-                        html +=                             '<p></p>'
-                        html +=                         '</div>'
-                        html +=                     '</div>'
-                        html +=                 '</div>'
-                    });
                     
 
 
