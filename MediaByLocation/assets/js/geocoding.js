@@ -100,7 +100,7 @@ function showNearbyMedia(element)
             try
             {
                 //console.log(item.images.low_resolution.url)
-                data.forEach(function (item, index) 
+                data.data.forEach(function (item, index) 
                 {
                     try
                     {
