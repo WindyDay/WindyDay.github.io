@@ -151,7 +151,7 @@ function showNearbyMedia(element)
 
                 $('html, body').animate({
                     scrollTop: $("#listMediaNearby").offset().top
-                }, 2000);
+                }, 300);
             }
             catch(err)
             {
@@ -250,7 +250,7 @@ function showNearbyMedia(element)
 
                 $('html, body').animate({
                     scrollTop: $("#listMediaNearby").offset().top
-                }, 2000);
+                }, 300);
             }
 			
 
